@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="images/news-icon.png" type="image/x-icon">
 </head>
 
-<body>
+<body style="background-color: rgb(245, 240, 240);">
     <!-- navbar section -->
     <header>
         <nav class="navbar navbar-light navbar-expand-lg">
@@ -37,12 +37,64 @@
                 </div>
             </div>
         </nav>
-        <hr class="container">
+        <hr style="margin-top: -2px;" class="container">
     </header>
 
-    <main>
+    <main class="container">
+        <!-- news catagory -->
+        <section class="d-flex justify-content-between mt-5">
+            <a class="text-decoration-none text-dark" href="#">Home</a>
+            <a class="text-decoration-none text-dark" href="#">Breaking News</a>
+            <a class="text-decoration-none text-dark" href="#">Regular News</a>
+            <a class="text-decoration-none text-dark" href="#">International News</a>
+            <a class="text-decoration-none text-dark" href="#">Sports</a>
+            <a class="text-decoration-none text-dark" href="#">Entertainment</a>
+            <a class="text-decoration-none text-dark" href="#">Culture</a>
+            <a class="text-decoration-none text-dark" href="#">Arts</a>
+            <a class="text-decoration-none text-dark" href="#">All News</a>
+        </section>
 
+        <!-- total news catagory count -->
+        <section class="mt-4">
+            <div class="card">
+                <div class="card-body">
+                    4 news found in this catagory
+                </div>
+            </div>
+        </section>
+
+        <!-- sort by view -->
+        <section class="d-flex justify-content-between mt-3">
+            <p>Sort By View: <span class="btn btn-outline-primary px-4 text-dark bg-white ms-3">Default</span></p>
+            <div>
+                <button class="btn btn-outline-primary px-4 text-dark" type="button">Today's Pick</button>
+                <button class="btn btn-outline-primary px-4 text-dark" type="button">Trending</button>
+            </div>
+        </section>
+
+        <!-- news card -->
+        <section>
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="images/newspaper.png" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <footer class="text-center py-3" style="background-color: white">
+        <h4>Created by Sourav Saha</h4>
+    </footer>
 
 
 
