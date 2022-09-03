@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bangladesh Herald</title>
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- custom css  -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- website icon -->
+    <link rel="shortcut icon" href="images/news-icon.png" type="image/x-icon">
+</head>
+
+<body style="background-color: rgb(245, 240, 240);">
+    <!-- header section -->
+    <header>
+        <nav class="navbar navbar-light navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="#">
+                    <img class="border me-2 pt-1" src="images/newspaper.png" alt="" width="50">
+                    <span class="text-success">Bangladesh</span> Herald
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span
+                        class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="navbar-brand fw-bold" href="index.html">News</a>
+                            <a class="navbar-brand fw-bold" href="blog.html">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <hr style="margin-top: -2px;" class="container">
+    </header>
+
+    <section class="container">
+        <div>
+            <h2>What is the difference between VAR const and let?</h2>
+            <p>Ans:
+                var declarations are globally scoped or function scoped while let and const are block scoped. var
+                variables can be updated and re-declared within its scope; let variables can be updated but not
+                re-declared; const variables can neither be updated nor re-declared.
+            </p>
+        </div>
+
+        <div>
+            <h2>Difference between arrow functions and regular function</h2>
+            <p>
+                Unlike regular functions, arrow functions do not have their own this . The value of this inside an arrow
+                function remains the same throughout the lifecycle of the function and is always bound to the value of
+                this in the closest non-arrow parent function.
+            </p>
+        </div>
+        <div>
+            <h2>Difference between map,forEach, filter,find</h2>
+            <p>Map creates a new array from calling a function for every array element.Map calls a function once for
+                each element in an array.Map does not change the original array.
+                The forEach method calls a function for each element in an array. The ForEach method is not executed for
+                empty elements.
+                The filter method is used to filters all the elements and returns the element that matches and the
+                element that do not match are removed.The find method is used to to find only first child which is
+                match.
+                find method search through all the child elements only.
+            </p>
+        </div>
+    </section>
+
+    <!-- footer section  -->
+    <footer class="text-center py-3" style="background-color: white">
+        <h4>Created by Sourav Saha</h4>
+    </footer>
+
+
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- fontawesome icon js -->
+    <script src="https://kit.fontawesome.com/1b0ea5db11.js" crossorigin="anonymous"></script>
+    <!-- js files -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
