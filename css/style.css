@@ -12,7 +12,13 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-.author-img img {
-    width: 60px;
-    height: 60px;
+.author-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 42px;
+}
+
+.author {
+    margin-left: 10px;
 }

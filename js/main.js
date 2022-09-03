@@ -58,34 +58,30 @@ const newsDisplay = (allNews) => {
     for (const news of sort) {
         notFound.innerHTML = "";
         const div = document.createElement('div');
-        div.classList.add('col');
         div.innerHTML = `
-            <div class="card mb-3">
-                <div class="row g-3">
-                    <div class="col-12 text-center col-md-5">
-                        <img  style="width: 300px; height: 250px;" src="${news.thumbnail_url}" alt="...">
-                    </div>
-                    <div class="col-12 col-md-7">
-                        <div class="card-body">
-                            <h5 class="card-title">${news.title}</h5>
-                            <p class="card-text">${news.details.slice(0, 120)}....</p>
-                        </div>
-                        <div class="author-img d-flex">
-                            <img src="${news.author.img}" class="rounded-circle" alt="">
-                            <div>
-                                <p class="ms-3">
-                                    ${news.author.name === null ? "No Author found" : news.author.name}
-                                </p>
-                                <p class="ms-3">
-                                    ${news.author.published_date === null ? "No date" : news.author.published_date}
-                                </p>
+            <div class="row">
+                <div class="col-lg-3 mb-5">
+                    <img style="height: 250px;" src="${news.thumbnail_url}" alt="" class="img-fluid w-100 rounded">
+                </div>
+                <div class="col-lg-9">
+                    <h5>${news.title}</h5>
+                    <p class="details">${news.details.slice(0, 350)}. . . . . . .</p>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="d-flex">
+                                <img src="${news.author.img}" alt="" class="author-img">
+                                <h6 class="mt-5 author">${news.author.name} <br> ${news.author.published_date} </h6>
                             </div>
                         </div>
-                        <p>Total view : ${news.total_view === null ? "No views " : news.total_view}</p>
-                        <button id="show-details" onclick="showCategoryDetails('${news._id}')" type="button"
-                            class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Show
-                            News Details
-                        </button>
+                        <div class="col-lg-3 mt-5">
+                            <h5><i class="fa-sharp fa-solid fa-eye"></i> ${news.total_view}M</h5>
+                        </div>
+                        <div class="col-lg-3 mt-5">
+                            <i class="fa-regular fa-star"> ${news.rating.number}</i>
+                        </div>
+                        <div class="col-lg-2 mt-5">
+                            <i class="fa-solid fa-arrow-right btn btn-outline-info" id="show-details" onclick="showCategoryDetails('${news._id}')" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+                        <div>
                     </div>
                 </div>
             </div>
@@ -110,7 +106,7 @@ const categoryDetails = (details) => {
     title.innerText = details.title;
     const modal = document.getElementById("modal-img");
     modal.innerHTML = `
-      <img src="${details.image_url}" alt="">
+      <img src="${details.thumbnail_url}" alt="">
     `;
     const modalDetails = document.getElementById("modal-details");
     modalDetails.innerText = details.details.slice(0, 200) + "...";
