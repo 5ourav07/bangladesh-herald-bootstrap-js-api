@@ -21,8 +21,8 @@ const displayCategories = (categories) => {
 
 const newsDisplayLoad = (category_id) => {
     // spinner
-    const spinnerSection = document.getElementById('spinner');
-    spinnerSection.classList.remove('d-none');
+    const spinner = document.getElementById('spinner');
+    spinner.classList.remove('d-none');
 
     const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
     fetch(url)
@@ -35,7 +35,7 @@ const newsDisplay = (allNews) => {
     // news count 
     const newsCount = document.getElementById('news-count');
     newsCount.innerHTML = `
-        <h2>Total ${allNews.length} news has found</h2>
+        <p class='fw-bold py-2 ms-2'>Total ${allNews.length} news has found</p>
     `;
 
     const newsCard = document.getElementById('all-news');
@@ -44,37 +44,37 @@ const newsDisplay = (allNews) => {
 
     if (allNews.length === 0) {
         notFound.innerHTML = `
-            <h2 class="text-center text-warning">No News found here !! search another </h2>
+            <p class="text-center py-2 ms-2">No News found</p>
         `;
     }
 
     //sorting news by view
-    let sort = allNews.sort((a, b) => {
-        const aView = a?.total_view;
-        const bView = b?.total_view;
-        return (aView < bView) ? 1 : -1;
+    let sort = allNews.sort((num1, num2) => {
+        const value1 = num1.total_view;
+        const value2 = num2.total_view;
+        return (value1 < value2) ? 1 : -1;
     });
 
     for (const news of sort) {
         notFound.innerHTML = "";
         const div = document.createElement('div');
         div.innerHTML = `
-            <div class="row">
+            <div class="row mb-2">
                 <div class="col-lg-3 mb-5">
-                    <img style="height: 250px;" src="${news.thumbnail_url}" alt="" class="img-fluid w-100 rounded">
+                    <img style="height: 220px;" src="${news.thumbnail_url}" alt="" class="img-fluid w-100 rounded">
                 </div>
                 <div class="col-lg-9">
                     <h5>${news.title}</h5>
-                    <p class="details">${news.details.slice(0, 350)}. . . . . . .</p>
+                    <p class="details">${news.details.slice(0, 200)}....</p>
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="d-flex">
                                 <img src="${news.author.img}" alt="" class="author-img">
-                                <h6 class="mt-5 author">${news.author.name} <br> ${news.author.published_date} </h6>
+                                <h6 class="ms-2 mt-5 author">${news.author.name} <br> ${news.author.published_date} </h6>
                             </div>
                         </div>
                         <div class="col-lg-3 mt-5">
-                            <h5><i class="fa-sharp fa-solid fa-eye"></i> ${news.total_view}M</h5>
+                            <h5><i class="fa-sharp fa-solid fa-eye"></i> ${news.total_view}</h5>
                         </div>
                         <div class="col-lg-3 mt-5">
                             <i class="fa-regular fa-star"> ${news.rating.number}</i>
@@ -88,8 +88,8 @@ const newsDisplay = (allNews) => {
         `;
         newsCard.appendChild(div);
     }
-    const spinnerSection = document.getElementById("spinner");
-    spinnerSection.classList.add("d-none");
+    const spinner = document.getElementById("spinner");
+    spinner.classList.add("d-none");
 };
 
 const showCategoryDetails = (news_id) => {
@@ -100,31 +100,48 @@ const showCategoryDetails = (news_id) => {
         .catch((error) => console.log(error));
 };
 
-// Load category details with modal
+// modal
 const categoryDetails = (details) => {
-    const title = document.getElementById("exampleModalLabel");
-    title.innerText = details.title;
-    const modal = document.getElementById("modal-img");
-    modal.innerHTML = `
-      <img src="${details.thumbnail_url}" alt="">
+    const modalTitle = document.getElementById("exampleModalLabel");
+    modalTitle.innerText = details.title;
+    const modalImage = document.getElementById("modal-image");
+    modalImage.innerHTML = `
+        <img src="${details.thumbnail_url}" alt="">
     `;
     const modalDetails = document.getElementById("modal-details");
     modalDetails.innerText = details.details.slice(0, 200) + "...";
+
     const modalAuthor = document.getElementById("modal-author");
+
     if (details.author.name === null) {
         modalAuthor.innerText = "No author";
-    } else {
+    }
+    else {
         modalAuthor.innerText = "Author:" + " " + details.author.name;
     }
+
     const modalViews = document.getElementById("modal-views");
+
     if (details.total_view === null) {
         modalViews.innerText = "No views";
-    } else {
+    }
+    else {
         modalViews.innerText = "Total View:" + " " + details.total_view;
     }
+
+    const modalRating = document.getElementById('modal-rating');
+
+    if (details.rating.number === null) {
+        modalRating.innerText = "No rating";
+    }
+    else {
+        modalRating.innerText = "Rating:" + " " + details.rating.number;
+    }
+
     if (details.author.published_date === null) {
         document.getElementById("date").innerText = "No date found";
-    } else {
+    }
+    else {
         document.getElementById("date").innerText = details.author.published_date;
     }
 };
