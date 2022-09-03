@@ -51,23 +51,37 @@
         <!-- total news category count -->
         <section class="mt-4">
             <div class="card">
-                <div class="card-body">
-                    <!-- <p id="count"></p> -->
-                    For Later
+                <div id="news-count" class="card-body">
+
                 </div>
             </div>
         </section>
 
         <!-- sort by view -->
-        <!-- <section class="d-flex justify-content-between mt-3">
+        <section class="d-flex justify-content-between mt-3">
             <p>Sort By View: <span class="btn btn-outline-primary px-4 text-dark bg-white ms-3">Default</span></p>
             <div>
                 <button class="btn btn-outline-primary px-4 text-dark" type="button">Today's Pick</button>
                 <button class="btn btn-outline-primary px-4 text-dark" type="button">Trending</button>
             </div>
-        </section> -->
+        </section>
+
+        <!-- spinner  -->
+        <section>
+            <div id="spinner" style="height:300px;" class="d-flex d-none align-items-center justify-content-center">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </section>
 
         <!-- news card -->
+        <section class="mt-5">
+            <div id="not-found"></div>
+            <div id="all-news" class="row row-cols-1 row-cols-md-2 g-4">
+            </div>
+        </section>
+
         <!-- <section>
             <div class="card mb-3">
                 <div class="row g-0">

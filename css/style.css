@@ -11,3 +11,8 @@
 body {
     font-family: 'Poppins', sans-serif;
 }
+
+.author-img img {
+    width: 60px;
+    height: 60px;
+}
